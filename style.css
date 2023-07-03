@@ -9,7 +9,7 @@
     text-decoration: none;
 }
 :root{
-    --red:#d63a25;
+    --red:#f34932;
     --white:#fff;
     --dark:#1e1c2a;
 }
@@ -48,6 +48,10 @@ body{
     font-size: 17px;
     font-weight: 500;
     transition: all 0.5s;
+}
+
+.navigation ul li a:hover{
+    color: var(--red);
    
 }
 
@@ -107,6 +111,13 @@ body{
 .home-img img{
     width: 100%;
 }
+
+.home-img:hover{
+    cursor: pointer;
+   
+    transform: scale(1.1);
+}
+
 @media (max-width:785px) {
     .navigation{
         padding: 18px 20px;
