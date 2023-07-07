@@ -8,6 +8,45 @@
     list-style: none;
     text-decoration: none;
 }
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-menu li a {
+    position: relative;
+    letter-spacing: 0.5;
+}
+
+.nav-menu li a::after {
+    content: "";
+    position: absolute;
+    background-color: #f34932;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: -2px;
+    transition: 0.3s;
+    transform: scaleX(0); 
+
+}
+.nav-menu li a:hover::after {
+    transform: scaleX(1); /* Aplica a escala completa para exibir a linha */
+}
+
+.nav-menu li a:hover{
+    color: rgb(207, 51, 3);
+}
+
 :root{
     --red:#f34932;
     --white:#fff;
@@ -29,30 +68,39 @@ body{
     position: fixed;
    
 }
-.navigation .logo{
+
+@keyframes moveLogo {
+    0% {
+        transform: translateX(0);
+    }
+    
+    100% {
+        transform: translateX(1px); /* Altere o valor conforme necessário */
+    }
+    50% {
+        transform: translateX(100px); /* Altere o valor conforme necessário */
+    }
+}
+
+.navigation .logo {
     color: var(--red);
     font-size: 1.7rem;
     font-weight: 600;
+    animation: moveLogo 2s ; /* Altere a duração da animação conforme necessário */
 }
+
 .logo span{
     color: var(--dark);
 }
 .navigation ul{
     display: flex;
     align-items: center;
-    gap: 5rem;
-    
+    gap: 5rem;    
 }
 .navigation ul li a{
     color: var(--dark);
     font-size: 17px;
     font-weight: 500;
-    transition: all 0.5s;
-}
-
-.navigation ul li a:hover{
-    color: var(--red);
-   
 }
 
 .navigation i{
@@ -106,8 +154,31 @@ body{
     transition: all 0.5s;
 }
 .home-btn:hover{
-    background: #fc4c35;
+    background:linear-gradient(90deg, rgb(252, 73, 73), rgb(175, 106, 2), rgb(241, 59, 59));
 }
+
+.home-img img{
+    width: 500px;
+}
+
+@keyframes jumpAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Altere o valor conforme necessário */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.home-img img {
+    width: 100%;
+    animation: jumpAnimation 2s infinite; /* Altere a duração da animação conforme necessário */
+}
+
+
 .home-img img{
     width: 100%;
 }
